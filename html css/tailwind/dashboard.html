@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" id="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class"
+        }
+    </script>
+
+</head>
+
+<body class="dark:bg-slate-200">
+    <div class="flex">
+        <div class="bg-slate-400 w-16 h-screen flex flex-col justify-between dark:bg-slate-600">
+            <div>
+                <div
+                    class="bg-slate-200 p-1 m-3 text-center rounded hover:bg-slate-100 transition duration-300 dark:bg-slate-400">
+                    <i class="bi bi-house"></i>
+                </div>
+                <div
+                    class="bg-slate-200 p-1 m-3 text-center rounded hover:bg-slate-100 transition duration-300 dark:bg-slate-400">
+                    <i class="bi bi-window"></i>
+                </div>
+                <div
+                    class="bg-slate-200 p-1 m-3 text-center rounded hover:bg-slate-100 transition duration-300 dark:bg-slate-400">
+                    <i class="bi bi-shop"></i>
+                </div>
+            </div>
+            <div
+                class="bg-slate-200 p-1 m-3 text-center rounded hover:bg-slate-100 transition duration-300 dark:bg-slate-400">
+                <i class="bi bi-gear"></i>
+            </div>
+        </div>
+        <div class="bg-slate-300 h-screen w-28 flex flex-col justify-between dark:bg-slate-500">
+            <div>
+                <div class="bg-slate-400  m-2 p-2 rounded hover:bg-slate-100 transition duration-300">
+                    Products</div>
+                <div class="bg-slate-400  m-2 p-2 rounded hover:bg-slate-100 transition duration-300">
+                    accouts</div>
+                <div class="bg-slate-400  m-2 p-2 rounded hover:bg-slate-100 transition duration-300">
+                    Orders</div>
+                <div class="bg-slate-400  m-2 p-2 rounded hover:bg-slate-100 transition duration-300">
+                    History</div>
+            </div>
+            <div id="toggle"
+                class="bg-slate-400  m-2 p-2 rounded text-center hover:bg-slate-100 transition duration-300">
+                Light <i class="bi bi-sun"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById("toggle")
+        const html = document.getElementById("html")
+        toggleBtn.addEventListener("click", function () {
+            if (html.classList.contains("dark")) {
+                html.classList.remove("dark")
+            } else {
+                html.classList.add("dark")
+            }
+        })
+    </script>
+</body>
+
+</html>

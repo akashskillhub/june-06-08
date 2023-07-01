@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+            position: relative;
+            /* top: 0; */
+        }
+
+        .child {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            /* top: 0px; */
+            right: 0px;
+        }
+
+        .fixed {
+            height: 50px;
+            width: 50px;
+            background-color: yellow;
+            position: fixed;
+            top: 25%;
+            right: 0;
+
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: orange;
+            margin-bottom: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 400px;"></div>
+    <div class="parent">
+        <div class="child"></div>
+        <div class="fixed"></div>
+    </div>
+    <div class="sticky">menu 1</div>
+    <div class="sticky">menu 2</div>
+    <div class="sticky">menu 3</div>
+
+    <div style="height: 4000px;"></div>
+
+</body>
+
+</html>

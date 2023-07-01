@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap By SKILLHUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- .container>.row>.col-sm-6.offset-sm-3 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input autofocus id="inp" type="text" class="form-control" placeholder="Username"
+                                aria-label="Username" aria-describedby="basic-addon1">
+
+                            <button id="addBtn" type="button" class="btn btn-primary">+</button>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="removeAll()" type="button" class="btn btn-danger">Remove All</button>
+                <div id="output" class="my-4"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const inp = document.querySelector("#inp")
+        const addBtn = document.querySelector("#addBtn")
+        const output = document.querySelector("#output")
+        const todos = JSON.parse(localStorage.getItem("todos")) || []
+
+        addBtn.addEventListener("click", function () {
+            todos.push({ task: inp.value, complete: false })
+            dispaly()
+            inp.value = ""
+            inp.focus()
+            localStorage.setItem("todos", JSON.stringify(todos))
+
+        })
+        dispaly()
+        function removeAll() {
+            todos.splice(0, todos.length)
+            localStorage.removeItem("todos")
+            dispaly()
+        }
+
+        function dispaly() {
+            output.innerHTML = ""
+            for (let i = 0; i < todos.length; i++) {
+                output.innerHTML += `<div class="card my-2"> 
+                        <div class="${todos[i].complete && "bg-success"} card-body d-flex justify-content-between">
+                            <input 
+                                ${todos[i].complete && "checked"} 
+                                type="checkbox" 
+                                onclick="handleClick(event, ${i})">  
+                            ${todos[i].task}   ${todos[i].complete}
+                            <button onclick="remove(${i})" type="button" class="btn btn-danger">X</button>
+                        </div>
+                    </div>`
+            }
+        }
+
+        function remove(index) {
+            todos.splice(index, 1)
+            dispaly()
+
+        }
+        function handleClick(e, index) {
+            // console.log(e.target.checked);
+            console.log(index)
+            todos[index].complete = e.target.checked
+            dispaly()
+
+        }
+    </script>
+</body>
+
+</html>

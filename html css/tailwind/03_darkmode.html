@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" id="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class"
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <h1 class="text-3xl p-4 bg-slate-200 dark:bg-red-800">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Facilis illo
+        temporibus modi
+        necessitatibus quisquam
+        sapiente commodi accusantium ad omnis ratione repudiandae nisi, veritatis consequuntur voluptatum doloribus sed
+        quia assumenda nostrum.</h1>
+    <button id="toggle">toggle</button>
+
+    <script>
+        const toggleBtn = document.getElementById("toggle")
+        const html = document.getElementById("html")
+        toggleBtn.addEventListener("click", function () {
+            if (html.classList.contains("dark")) {
+                html.classList.remove("dark")
+            } else {
+                html.classList.add("dark")
+            }
+        })
+    </script>
+</body>
+
+</html>

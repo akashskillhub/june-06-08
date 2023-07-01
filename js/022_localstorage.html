@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="add()" class="btn btn-primary">add</button>
+    <button type="button" onclick="get()" class="btn btn-primary">get</button>
+    <button type="button" onclick="remove()" class="btn btn-primary">remove</button>
+    <script>
+        const arr = ["dell", "hp"]
+        function add() {
+            const x = JSON.stringify(arr)
+            localStorage.setItem("user", x)
+        }
+        function get() {
+            const result = localStorage.getItem("user")
+            const x = JSON.parse(result)
+            console.log(x)
+        }
+        function remove() {
+            localStorage.removeItem("user")
+        }
+    </script>
+
+</body>
+
+</html>

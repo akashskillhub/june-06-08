@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="fname">
+    <h1 id="title">hello</h1>
+    <div id="output"></div>
+    <button onclick="handleInput()">click me</button>
+    <button onclick="handleElement()">handle tag</button>
+
+    <script>
+        // handleInput
+        function handleInput() {
+            // document.getElementById("fname")
+            const result = document.querySelector("#fname")
+            console.log(result)
+            // getter
+            console.log(result.value)
+
+            // setter
+            result.value = ""
+
+        }
+        function handleElement() {
+            // const result = document.querySelector("#title")
+            // Getter
+            // console.log(result.innerHTML);
+            // Setter
+            // result.innerHTML = "dell"
+
+            const result = document.querySelector("#output")
+            result.innerHTML = " <h1>dell</h1> "
+        }
+    </script>
+</body>
+
+</html>
