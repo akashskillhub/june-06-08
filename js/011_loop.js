@@ -1,10 +1,25 @@
-const arr = [10, 20, 30]
+const isPrime = num => {
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            return false
+        }
+    }
+    return true
 
-for (let i = 0; i < arr.length; i++) {
-    console.log(i)
-    console.log(arr[i] ** 2)
-    // console.log(arr[i] ** 2)
 }
-console.log(arr[0] ** 2);
-console.log(arr[1] ** 2);
-console.log(arr[2] ** 2);
+
+const display = limit => {
+    const prime = []
+    for (let i = 2; prime.length !== limit; i++) {
+        if (isPrime(i)) {
+            prime.push(i)
+        }
+    }
+    return prime
+}
+
+console.log(display(10))
+// test([22,1,4,5,3,4]) // return all prime numbers
+// demo(50,100) // return all prime numner between 50 and 100
+
+// [2,3,5,7,11,13,17,19,23,29]    

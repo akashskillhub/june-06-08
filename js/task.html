@@ -8,8 +8,17 @@
 </head>
 
 <body>
-    <input type="checkbox">
+    <input type="text" id="inp">
+    <!-- <button onclick="show()">show</button> -->
+    <button>show</button>
 
+    <script>
+        // const show = () => console.log(document.querySelector("#inp").value)
+
+        document.querySelector("button").addEventListener("click", () => {
+            console.log(document.querySelector("#inp").value)
+        })
+    </script>
 </body>
 
 </html>
