@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap By SKILLHUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .seat {
+            height: 25px;
+            width: 25px;
+            border: 2px solid;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: 300ms;
+        }
+
+        .seat:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container">
+        <!-- .row>.col-sm-6.offset-sm-3 -->
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="card">
+                    <div class="card-header">Book My Show Pro+</div>
+                    <div class="card-body">
+                        <select class="form-select" id="movies"></select>
+                        <div class="my-3 d-flex flex-wrap gap-3" id="seats"></div>
+                        <button type="button" class="btn btn-primary" id="book">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const movies = document.querySelector("#movies")
+        const seats = document.querySelector("#seats")
+        const book = document.querySelector("#book")
+
+        const movieArray = ["movie 1", "movie 2"]
+        let option = "<option>Choose Movie</option>"
+        for (const item of movieArray) {
+            option += `<option>${item}</option>`
+        }
+        movies.innerHTML = option
+
+        for (let i = 0; i < 50; i++) {
+            seats.innerHTML += `<div id="s-${i + 1}" onclick="selectSeat(${i + 1})" class="seat"></div>`
+        }
+
+        const selectSeat = seatNumber => {
+            const isSelected = document.querySelector(`#s-${seatNumber}`).classList.contains("bg-success")
+
+            if (isSelected) {
+                document.querySelector(`#s-${seatNumber}`).classList.remove("bg-success")
+            } else {
+                document.querySelector(`#s-${seatNumber}`).classList.add("bg-success")
+            }
+
+            const count = document.querySelectorAll(".bg-success").length
+            console.log(`You have selected ${count} seats and estimated bill is ${count * 500}`)
+        }
+
+        movies.addEventListener("change", e => {
+            const { value } = e.target
+            alert(value)
+        })
+    </script>
+</body>
+
+</html>

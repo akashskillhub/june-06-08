@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap By SKILLHUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <button type="button" class="btn btn-primary" onclick="handleLocation()">Get Geo Locationy</button>
+    <script>
+        const API_KEY = "6d4d5e6da7344e50824b02452978169a"
+        // https://api.opencagedata.com/geocode/v1/json?q=LAT+LNG&key=6d4d5e6da7344e50824b02452978169a
+
+        const getLocation = data => {
+            console.log(data)
+            const { coords } = data
+            const LAT = coords.latitude
+            const LNG = coords.longitude
+            document.getElementById("root").innerHTML = `<div class="spinner-border text-primary"></div>`
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${LAT}+${LNG}&key=${API_KEY}`)
+                .then(response => response.json())
+                .then(data => {
+                    // console.log(data)
+                    const {
+                        postcode,
+                        county,
+                        city,
+                        road,
+                        state,
+                        suburb } = data.results[0].components
+                    console.log(postcode,
+                        county,
+                        city,
+                        road,
+                        state,
+                        suburb);
+                    document.getElementById("root").innerHTML = city
+                })
+                .catch(err => console.log(err))
+
+        }
+        const handleErr = err => console.log(err)
+
+        const handleLocation = () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(getLocation, handleErr, {
+                    enableHighAccuracy: true
+                })
+            } else {
+                console.log("geolocation not available")
+            }
+
+        } 
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
