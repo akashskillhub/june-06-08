@@ -28,12 +28,15 @@
         <!-- .row>.col-sm-6.offset-sm-3 -->
         <div class="row">
             <div class="col-sm-6 offset-sm-3">
-                <div class="card">
+                <div id="feedback"> </div>
+                <div class="card " id="screen">
                     <div class="card-header">Book My Show Pro+</div>
-                    <div class="card-body">
+                    <div class="card-body ">
                         <select class="form-select" id="movies"></select>
-                        <div class="my-3 d-flex flex-wrap gap-3" id="seats"></div>
-                        <button type="button" class="btn btn-primary" id="book">Book</button>
+                        <div class="d-none" id="showSeats">
+                            <div class="my-3 d-flex flex-wrap gap-3" id="seats"></div>
+                            <button type="button" class="btn btn-primary" id="book">Book</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,16 +44,18 @@
     </div>
 
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        const bookings = []
         const movies = document.querySelector("#movies")
         const seats = document.querySelector("#seats")
         const book = document.querySelector("#book")
 
         const movieArray = ["movie 1", "movie 2"]
-        let option = "<option>Choose Movie</option>"
+        let option = `<option value="">Choose Movie</option>`
         for (const item of movieArray) {
-            option += `<option>${item}</option>`
+            option += `<option value="${item}">${item}</option>`
         }
         movies.innerHTML = option
 
@@ -68,13 +73,89 @@
             }
 
             const count = document.querySelectorAll(".bg-success").length
+
+            document.querySelector("#feedback").innerHTML = `
+            <div class="alert alert-success my-3">You have selected ${count} seats and estimated bill is ${count * 500}</div>
+            `
+            if (count === 0) {
+                document.querySelector("#feedback").innerHTML = ""
+            }
             console.log(`You have selected ${count} seats and estimated bill is ${count * 500}`)
         }
 
         movies.addEventListener("change", e => {
-            const { value } = e.target
-            alert(value)
+            const { value } = e.target;
+            value
+                ? document.querySelector("#showSeats").classList.remove("d-none")
+                : document.querySelector("#showSeats").classList.add("d-none")
+            display(value)
         })
+
+        book.addEventListener("click", () => {
+            const ids = []
+
+            const selectedSeats = document.querySelectorAll(".bg-success")
+            for (const item of selectedSeats) {
+                ids.push(item.id)
+            }
+
+            bookings.push({
+                movieName: movies.value,
+                seats: ids
+            })
+            localStorage.setItem("bookings", JSON.stringify(bookings))
+            const amt = ids.length * 500
+            const gst = (28 / 100) * (ids.length * 500)
+            const total = amt + gst
+            document.querySelector("#feedback").innerHTML = `
+            <div class="card">
+                <div class="card-header">Invoice</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Movie Name </span> <strong>${movies.value}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Seat Numbers </span> <strong>${ids}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Amount </span> <strong>${amt}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Tax </span> <strong>${gst}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total </span> <strong>${total}</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            `
+            document.querySelector("#screen").classList.add("d-none")
+        })
+        const display = film => {
+
+            if (film) {
+                const x = document.querySelectorAll(".seat")
+                for (const item of x) {
+                    document.querySelector(`#${item.id}`).classList.remove("bg-success")
+                }
+
+                const allSeats = JSON.parse(localStorage.getItem("bookings"))
+
+                for (let i = 0; i < allSeats.length; i++) {
+                    if (film === allSeats[i].movieName) {
+                        // console.log(allSeats[i].seats)
+                        for (const item of allSeats[i].seats) {
+                            document.querySelector(`#${item}`).classList.add("bg-success")
+                        }
+                    }
+                }
+
+            }
+        }
+
     </script>
 </body>
 
