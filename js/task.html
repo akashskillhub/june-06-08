@@ -5,23 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
-    <button onclick="toggle()">toggle</button>
+    <a href="#about">got to about</a>
+    <h1 style="height: 2000px;">asd</h1>
+    <h1 id="about">ABOUT</h1>
+    <h1 style="height: 5000px;">asd</h1>
 
-    <script>
-        let x = true
-        const toggle = () => {
-            if (x) {
-                alert("hi")
-                x = false
-            } else {
-                alert("bye")
-                x = true
-            }
-        } 
-    </script>
 </body>
 
 </html>
