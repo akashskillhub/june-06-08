@@ -1,16 +1,42 @@
 {
   "blogs": [
     {
-      "title": "Learn Redux Toolkit",
-      "desc": "The most popular State mang. Tool",
-      "hero": "https://images.unsplash.com/photo-1691073123397-d93b4e3b9991?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      "id": 3
+      "title": "QS",
+      "desc": "QW",
+      "hero": "QW",
+      "id": 8
     },
     {
       "title": "Learn Redux Toolkit",
       "desc": "The most popular State mang. Tool",
       "hero": "https://images.unsplash.com/photo-1691073123397-d93b4e3b9991?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      "id": 4
+      "id": 9
+    },
+    {
+      "title": "Learn Redux Toolkit",
+      "desc": "The most popular State mang. Tool",
+      "hero": "https://images.unsplash.com/photo-1691073123397-d93b4e3b9991?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "id": 10
+    }
+  ],
+  "users": [
+    {
+      "name": "john",
+      "email": "john@email.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "Ross",
+      "email": "ross@email.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "kate",
+      "email": "kate@email.com",
+      "password": "123",
+      "id": 3
     }
   ]
 }
