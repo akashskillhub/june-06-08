@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addBlog, deleteBlog, getBlogs, invalidate, updateBlog } from './redux/store'
+import { addBlog, deleteBlog, getBlogs, invalidate, updateBlog } from '../redux/store'
 import { ToastContainer, toast } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
+import { useNavigate } from 'react-router-dom'
 const Blogs = () => {
     const callAction = useDispatch()
     const [selectedBlog, setSelectedBlog] = useState({})
@@ -29,14 +30,23 @@ const Blogs = () => {
         }
         callAction(getBlogs())
     }, [blogDelete, blogUpdate, blogCreate])
-    return <>
+
+    const { auth } = useSelector(state => state.clients)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (!auth) {
+            toast.error("Logout success")
+            navigate("/login")
+        }
+    }, [auth])
+    return <div className='container'>
         <ToastContainer />
         <div className="container my-5">
             <div className='text-end'>
                 <button
                     className='btn btn-primary'
                     onClick={e => {
-                        callAction(addBlog(userResponse))
+                        callAction(addBlog({ ...userResponse, user: auth.name }))
                         callAction(invalidate())
                     }}>+Add Blog</button>
             </div>
@@ -114,7 +124,7 @@ const Blogs = () => {
             </div>
         </div>
         {/* edit modal end*/}
-    </>
+    </div>
 }
 
 

@@ -1,0 +1,10 @@
+{
+  "todos": [
+    {
+      "task": "Learn Redux Toolkit",
+      "desc": "😲 its so easy",
+      "priority": "very high",
+      "id": 1
+    }
+  ]
+}

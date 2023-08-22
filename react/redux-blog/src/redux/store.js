@@ -24,6 +24,8 @@ const REGISTER_FAIL = "REGISTER_FAIL"
 const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 const LOGIN_FAIL = "LOGIN_FAIL"
 
+const LOGOUT = "LOGOUT"
+
 
 const userReducer = (state = { users: [] }, { type, payload }) => {
     switch (type) {
@@ -32,6 +34,8 @@ const userReducer = (state = { users: [] }, { type, payload }) => {
 
         case LOGIN_SUCCESS: return { ...state, auth: payload }
         case LOGIN_FAIL: return { ...state, error: payload }
+
+        case LOGOUT: return { ...state, auth: null }
 
         default: return state
     }
@@ -148,15 +152,27 @@ export const loginUser = userData => async dispatch => {
             })
 
         } else {
-            dispatch({ type: LOGIN_SUCCESS, payload: data })
+            localStorage.setItem("auth", JSON.stringify(data[0]))
+            dispatch({ type: LOGIN_SUCCESS, payload: data[0] })
         }
     } catch (error) {
         dispatch({ type: LOGIN_FAIL, payload: error.message })
     }
 }
+export const logoutUser = userData => async dispatch => {
+    localStorage.removeItem("auth")
+    dispatch({ type: LOGOUT })
+}
+
+const local = JSON.parse(localStorage.getItem("auth"))
 
 const reduxStore = createStore(
     rootReducer,
-    {},
+    {
+        clients: {
+            auth: local
+        }
+    },
     composeWithDevTools(applyMiddleware(thunk)))
 export default reduxStore
+

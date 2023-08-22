@@ -1,34 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginUser } from '../redux/store'
-import { toast } from 'react-toastify'
+import { loginUser } from '../redux/actions/userActions'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-    const { auth, error } = useSelector(state => state.clients)
-    const [userresponse, setUserresponse] = useState({
-        email: "john@email.com",
+    const [userResponse, setUserResponse] = useState({
+        email: "ross@gmail.com",
         password: "123"
     })
     const handleChange = e => {
-        setUserresponse({
-            ...userresponse,
-            [e.target.name]: e.target.value
-        })
+        setUserResponse({ ...userResponse, [e.target.name]: e.target.value })
     }
     const callAction = useDispatch()
-    const handleLogin = e => {
-        callAction(loginUser(userresponse))
+    const handleSubmit = e => {
+        callAction(loginUser(userResponse))
     }
+
     const navigate = useNavigate()
+    const { loading, error, auth } = useSelector(state => state.clients)
     useEffect(() => {
         if (auth) {
-            toast.success("User Login Success")
-            navigate("/account")
-        } else if (error) {
-            toast.error(error)
+            navigate("/dash")
         }
-    }, [auth, error])
+    }, [auth])
     return <div class="container">
         <div class="row">
             <div class="col-sm-6 offset-sm-3">
@@ -40,9 +34,8 @@ const Login = () => {
                             <input
                                 type="text"
                                 class="form-control"
-                                id="email"
-                                name='email'
-                                value={userresponse.email}
+                                name="email"
+                                value={userResponse.email}
                                 onChange={handleChange}
                                 placeholder="Enter Your Email"
                             />
@@ -54,9 +47,8 @@ const Login = () => {
                             <input
                                 type="password"
                                 class="form-control"
-                                id="password"
-                                name='password'
-                                value={userresponse.password}
+                                name="password"
+                                value={userResponse.password}
                                 onChange={handleChange}
                                 placeholder="Enter Your Password"
                             />
@@ -64,7 +56,7 @@ const Login = () => {
                             <div class="invalid-feedback">Please choose a username.</div>
                         </div>
                         <button
-                            onClick={handleLogin}
+                            onClick={handleSubmit}
                             type="button" class="btn btn-primary w-100 mt-3">
                             Login
                         </button>
