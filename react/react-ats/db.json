@@ -8,12 +8,6 @@
       "role": "admin"
     },
     {
-      "name": "ross",
-      "email": "ross@gmail.com",
-      "password": 123,
-      "id": 2
-    },
-    {
       "name": "bill",
       "email": "bill@gmail.com",
       "password": "123",
@@ -26,6 +20,104 @@
       "password": "123",
       "role": "user",
       "id": 4
+    }
+  ],
+  "employers": [
+    {
+      "name": "Google",
+      "email": "google@gmail.com",
+      "password": "123",
+      "role": "employer",
+      "id": 1
+    }
+  ],
+  "jobs": [
+    {
+      "title": "react Dev",
+      "desc": "fake desc",
+      "location": "fake",
+      "mode": "onsite",
+      "type": "intern",
+      "salary": "50K doller",
+      "experince": "0",
+      "skills": [
+        "javaScript",
+        "react"
+      ],
+      "id": 1
+    },
+    {
+      "title": "node Dev",
+      "desc": "fake desc",
+      "location": "fake",
+      "mode": "onsite",
+      "type": "intern",
+      "salary": "50K doller",
+      "experince": "0",
+      "skills": [
+        "javaScript",
+        "react"
+      ],
+      "id": 2
+    },
+    {
+      "title": "Fullstack Dev",
+      "desc": "fake desc",
+      "location": "fake",
+      "mode": "onsite",
+      "type": "intern",
+      "salary": "50K doller",
+      "experince": "0",
+      "skills": [
+        "javaScript",
+        "react"
+      ],
+      "id": 3
+    },
+    {
+      "title": "React Native Dev",
+      "desc": "fake desc",
+      "location": "fake",
+      "mode": "onsite",
+      "type": "intern",
+      "salary": "50K doller",
+      "experince": "0",
+      "skills": [
+        "javaScript",
+        "react"
+      ],
+      "id": 4
+    },
+    {
+      "title": "Angular Dev",
+      "desc": "fake desc",
+      "location": "fake",
+      "mode": "onsite",
+      "type": "intern",
+      "salary": "50K doller",
+      "experince": "0",
+      "skills": [
+        "javaScript",
+        "react"
+      ],
+      "id": 5
+    }
+  ],
+  "apply": [
+    {
+      "userId": 3,
+      "jobId": 1,
+      "id": 1
+    },
+    {
+      "userId": 3,
+      "jobId": 2,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "jobId": 2,
+      "id": 3
     }
   ]
 }

@@ -42,7 +42,6 @@ const useDynamicForm = config => {
                 />
                 <label htmlFor="">{`Enter ${item.fieldName}`}</label>
             </div>
-
             case "select": return <div className="my-2">
                 <select
                     className="form-control"
@@ -82,9 +81,9 @@ const useDynamicForm = config => {
                     <label htmlFor={r}>{r}</label>
                 </>)}
             </div>
-
             case "submit": return <button
                 type="submit"
+                data-bs-dismiss="modal"
                 onClick={e => item.click(response)}
                 className="btn btn-primary w-100 btn-lg my-2">
                 {item.value}

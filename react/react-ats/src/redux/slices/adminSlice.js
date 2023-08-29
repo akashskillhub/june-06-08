@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login } from "../actions/adminAction";
+import { getAllEmployers, getAllUsers, login } from "../actions/adminAction";
 
 const adminSlice = createSlice({
     name: "admin",
@@ -26,6 +26,30 @@ const adminSlice = createSlice({
             state.loading = false
             state.error = payload
 
+        })
+
+        builder.addCase(getAllUsers.pending, (state, { payload }) => {
+            state.loading = true
+        })
+        builder.addCase(getAllUsers.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.users = payload
+        })
+        builder.addCase(getAllUsers.rejected, (state, { payload }) => {
+            state.loading = false
+            state.error = payload
+        })
+
+        builder.addCase(getAllEmployers.pending, (state, { payload }) => {
+            state.loading = true
+        })
+        builder.addCase(getAllEmployers.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.employers = payload
+        })
+        builder.addCase(getAllEmployers.rejected, (state, { payload }) => {
+            state.loading = false
+            state.error = payload
         })
     }
 

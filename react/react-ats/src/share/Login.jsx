@@ -3,64 +3,46 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../redux/actions/adminAction'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { loginUser } from '../redux/actions/userActions'
+import { loginEmployer } from '../redux/actions/employerActions'
 
 const Login = () => {
     const [userResponse, setUserResponse] = useState({
-        email: "admin@gmail.com",
-        password: 123
+        email: "bill@gmail.com",
+        password: 123,
+        account: "user"
     })
     const callAction = useDispatch()
     const handleSubmit = () => {
-        callAction(login(userResponse))
+        if (userResponse.account === "admin") {
+            callAction(login(userResponse))
+        } else if (userResponse.account === "user") {
+            callAction(loginUser(userResponse))
+        } else {
+            callAction(loginEmployer(userResponse))
+        }
     }
     const { auth, error, loading } = useSelector(state => state.admin)
+    const { auth: employerAuth } = useSelector(state => state.employer)
+    const { auth: userAuth, error: userError, loading: userLoading } = useSelector(state => state.user)
     const navigate = useNavigate()
     useEffect(() => {
         if (auth) {
             toast.success("Login Success")
-            if (auth.role === "admin") {
-                navigate("/admin")
-            }
+            // if (auth.role === "admin") {
+            navigate("/admin")
+            // }
         } else if (error) {
             toast.error(error)
+        } else if (userAuth) {
+            toast.success(`Welcome Back ${userAuth.name}. Login Success`)
+            navigate("/user")
+        } else if (employerAuth) {
+            toast.success(`Login Success`)
+            navigate("/employer")
         }
-    }, [auth, error])
-    // const [response, setResponse] = useState({
-    //     email: "john@gmail.com",
-    //     skills: []
-    // })
-    // const handleChange = e => {
+    }, [auth, error, userAuth, employerAuth])
 
-    //     const { value, name, checked } = e.target
-    //     setResponse({
-    //         ...response,
-    //         [name]: checked
-    //             ? [...response[name], value]
-    //             : response[name].filter(item => item !== value)
-    //     })
-    //     // if (checked) {
-    //     //     setResponse({
-    //     //         ...response,
-    //     //         // [name]: [...response[name], value]
-    //     //         [e.target.name]: [...response[e.target.name], e.target.value]
-    //     //     })
-
-    //     // } else {
-    //     //     setResponse({
-    //     //         ...response,
-    //     //         // [name]: [...response[name], value]
-    //     //         [e.target.name]: response[e.target.name].filter(item => item !== e.target.value)
-    //     //     })
-    //     // }
-    // }
-
-    // return <>
-    //     <pre>{JSON.stringify(response, null, 2)}</pre>
-    //     <input onChange={handleChange} name='skills' type="checkbox" value='React' id='React' /> <label htmlFor="React">React</label>
-    //     <input onChange={handleChange} name='skills' type="checkbox" value='Redux' id='Redux' /> <label htmlFor="Redux">Redux</label>
-    //     <input onChange={handleChange} name='skills' type="checkbox" value='TypeScript' id='TypeScript' /> <label htmlFor="TypeScript">TypeScript</label>
-    //     <input onChange={handleChange} name='skills' type="checkbox" value='NextJs' id='NextJs' /> <label htmlFor="NextJs">NextJs</label>
-    // </>
     if (loading) return <div class="spinner-border text-primary"></div>
     return <div className="container">
         <div className="row">
@@ -72,6 +54,10 @@ const Login = () => {
                             <label for="email" className="form-label">First Email</label>
                             <input
                                 type="text"
+                                value={userResponse.email}
+                                onChange={e => setUserResponse({
+                                    ...userResponse, email: e.target.value
+                                })}
                                 className="form-control"
                                 id="email"
                                 placeholder="Enter Your Email"
@@ -83,12 +69,58 @@ const Login = () => {
                             <label for="password" className="form-label">Password</label>
                             <input
                                 type="password"
+                                value={userResponse.password}
+                                onChange={e => setUserResponse({
+                                    ...userResponse, password: e.target.value
+                                })}
                                 className="form-control"
                                 id="password"
                                 placeholder="Enter Your Password"
                             />
                             <div className="valid-feedback">Looks good!</div>
                             <div className="invalid-feedback">Please choose a username.</div>
+                        </div>
+
+                        <div className='my-2 d-flex gap-2'>
+                            <input
+                                checked={userResponse.account === "user"}
+                                onChange={e => setUserResponse({
+                                    ...userResponse,
+                                    account: e.target.value
+                                })}
+                                className='form-check'
+                                type="radio"
+                                name="account"
+                                value="user"
+                                id='user' />
+                            <label htmlFor="user">User</label>
+
+                            <input
+                                checked={userResponse.account === "employer"}
+                                onChange={e => setUserResponse({
+                                    ...userResponse,
+                                    account: e.target.value
+                                })}
+                                className='form-check'
+                                type="radio"
+                                name="account"
+                                value="employer"
+                                id='employer' />
+                            <label htmlFor="employer">Employer</label>
+
+                            <input
+                                checked={userResponse.account === "admin"}
+                                onChange={e => setUserResponse({
+                                    ...userResponse,
+                                    account: e.target.value
+                                })}
+                                className='form-check'
+                                type="radio"
+                                name="account"
+                                value="admin"
+                                id='admin' />
+                            <label htmlFor="admin">Admin</label>
+
                         </div>
                         <button
                             onClick={handleSubmit}

@@ -5,6 +5,7 @@ import useSerialize from '../hooks/useSerialize'
 import useDynamicForm from '../hooks/useDynamicForm'
 import { login } from '../redux/actions/adminAction'
 import { toast } from 'react-toastify'
+import { registerEmployer } from '../redux/actions/employerActions'
 
 const Register = () => {
 
@@ -89,7 +90,7 @@ const EmployerRegistration = () => {
     }, [userRegister, error])
     const handleSubmit = arg => {
         console.log(arg)
-        dispatch(registerUser({ ...arg, role: "employer" }))
+        dispatch(registerEmployer({ ...arg, role: "employer" }))
     }
     const arr = [
         { fieldName: "name", type: "text", value: "" },
