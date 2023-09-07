@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { publicRoutes } from '../public/publicRoute'
 
 const Navbar = () => {
     return <>
@@ -46,6 +48,12 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
+        </div>
+        <div className=' bg-slate-200 p-4 flex justify-evenly'>
+            {
+                publicRoutes.map(({ path, show, label }) => show && <Link
+                    className='' to={path}>{label} </Link>)
+            }
         </div>
     </>
 }

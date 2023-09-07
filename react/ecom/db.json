@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "name": "eeeedd",
+      "image": "eeedd",
+      "price": "5345345",
+      "sizes": [
+        "md"
+      ],
+      "colors": [
+        "blue",
+        "yellow"
+      ],
+      "brand": "dasdasdasasd",
+      "id": 1
+    },
+    {
+      "name": "qwqwqwqw",
+      "image": "wwwwwwwwwwww",
+      "price": "34543",
+      "sizes": [
+        "md",
+        "sm",
+        "lg"
+      ],
+      "colors": [
+        "blue",
+        "yellow"
+      ],
+      "brand": "dddddddd",
+      "id": 2
+    }
+  ]
+}
