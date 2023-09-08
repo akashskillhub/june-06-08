@@ -1,34 +1,295 @@
 {
   "products": [
     {
-      "name": "eeeedd",
-      "image": "eeedd",
-      "price": "5345345",
+      "name": "Shoe 1",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "price": "7822",
       "sizes": [
-        "md"
-      ],
-      "colors": [
-        "blue",
-        "yellow"
-      ],
-      "brand": "dasdasdasasd",
-      "id": 1
-    },
-    {
-      "name": "qwqwqwqw",
-      "image": "wwwwwwwwwwww",
-      "price": "34543",
-      "sizes": [
-        "md",
         "sm",
+        "md",
         "lg"
       ],
       "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "id": 1
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "id": 2
+    },
+    {
+      "name": "Shoe 3",
+      "image": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
         "blue",
         "yellow"
       ],
-      "brand": "dddddddd",
+      "brand": "adidas",
+      "id": 3
+    },
+    {
+      "name": "Shoe 4",
+      "image": "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "price": "4512",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue",
+        "yellow"
+      ],
+      "brand": "puma",
+      "id": 4
+    },
+    {
+      "name": "Shoe 5",
+      "image": "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "price": "3541",
+      "sizes": [
+        "sm"
+      ],
+      "colors": [
+        "red",
+        "yellow"
+      ],
+      "brand": "adidas",
+      "id": 5
+    }
+  ],
+  "cart": [
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "lg",
+      "color": "red",
+      "qty": 2,
+      "id": 1
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "lg",
+      "color": "red",
+      "qty": 2,
       "id": 2
+    },
+    {
+      "name": "Shoe 4",
+      "image": "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "price": "4512",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue",
+        "yellow"
+      ],
+      "brand": "puma",
+      "size": "lg",
+      "color": "blue",
+      "qty": 2,
+      "id": 3
+    },
+    {
+      "name": "Shoe 5",
+      "image": "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "price": "3541",
+      "sizes": [
+        "sm"
+      ],
+      "colors": [
+        "red",
+        "yellow"
+      ],
+      "brand": "adidas",
+      "size": "sm",
+      "color": "yellow",
+      "qty": 2,
+      "id": 4
+    },
+    {
+      "name": "Shoe 3",
+      "image": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue",
+        "yellow"
+      ],
+      "brand": "adidas",
+      "size": "sm",
+      "color": "blue",
+      "qty": 2,
+      "id": 5
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "",
+      "color": "",
+      "qty": 1,
+      "id": 6
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "",
+      "color": "",
+      "qty": 1,
+      "id": 7
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "",
+      "color": "",
+      "qty": 1,
+      "id": 8
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "",
+      "color": "",
+      "qty": 1,
+      "id": 9
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "",
+      "color": "",
+      "qty": 1,
+      "id": 10
+    },
+    {
+      "name": "Shoe 2",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "price": "1247",
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "colors": [
+        "red",
+        "blue"
+      ],
+      "brand": "nike",
+      "size": "",
+      "color": "",
+      "qty": 1,
+      "id": 11
     }
   ]
 }
